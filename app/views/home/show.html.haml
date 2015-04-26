@@ -1,0 +1,43 @@
+-# %h1 Home#show
+-# %p Find me in app/views/home/show.html.haml
+-# .row
+-#   .col-xs-3
+-#   .col-xs-6
+-# = image_tag('top.jpg',:class => "img-responsive")
+
+#myCarousel.carousel.slide{ "data-ride" => "carousel", "data-interval" => "10000" }
+  %ol.carousel-indicators
+    %li.active{ "data-target" => "myCarousel", "data-slide-to" => "0", "class" => "img-responsive" }
+    %li{ "data-target" => "myCarousel", "data-slide-to" => "1", "class" => "img-responsive" }
+    %li{ "data-target" => "myCarousel", "data-slide-to" => "2", "class" => "img-responsive" }
+  .carousel-inner
+    .item.active
+      = image_tag('top.jpg', :alt => "FirstSlide")
+    .item
+      = image_tag ("top_002.jpg")
+    .item
+      = image_tag('top_003.jpg')
+  %a.left.carousel-control{href: "#myCarousel", role: "button", "data-slide" => "prev" }
+    %span.glyphicon.glyphicon-chevron-left
+  %a.right.carousel-control{href: "#myCarousel", role: "button", "data-slide" => "next" }
+    %span.glyphicon.glyphicon-chevron-right
+  -#
+%br
+%br
+%h1.text-center
+  .topic_title &nbsp;Information&nbsp;
+  %br
+  %h4
+    %u 2015年1月1日
+  %h5 あけましておめでとうございます。本年もよろしくお願いいたします。
+  %br
+  %h4
+    %u 2015年1月4日
+  %h5 仕事始めですね。
+  %h5 体調はいかがですか
+  %br
+  %h4
+    %u 2015年1月7日
+  %h5 七草粥は食べましたか。
+  %h5 春の七草はせり、なずな、ごぎょう、はこべら、ほとけのざ、すずな、すずしろです。
+  -# .col-xs-3

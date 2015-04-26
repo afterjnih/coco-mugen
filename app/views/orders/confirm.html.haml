@@ -1,0 +1,64 @@
+%h3 入力いただいた項目を確認して送信ボタンを押してください
+=form_for( @order, url:order_path) do |f|
+  .field
+    =f.hidden_field :last_name
+    =f.label :last_name
+    =@order.last_name
+
+    =f.hidden_field :first_name
+    =f.label :first_name
+    =@order.first_name
+  
+  .field
+    =f.hidden_field :last_name_kana
+    =f.label :last_name_kana
+    =@order.last_name_kana
+    
+    =f.hidden_field :first_name_kana
+    =f.label :first_name_kana
+    =@order.first_name_kana
+
+  .field
+    =f.hidden_field :mail
+    =f.label :mail
+    =@order.mail
+  
+  .field
+    =f.hidden_field :phone_number
+    =f.label :phone_number
+    =@order.phone_number
+    
+  - if @order.other_purpose == ""
+    .field
+      =f.hidden_field :purpose
+      =f.label :purpose
+      =@order.purpose
+  - else
+    .field
+      =f.hidden_field :purpose, value: "other"
+      =f.hidden_field :other_purpose
+      =f.label :purpose
+      =@order.other_purpose
+
+  .field
+    =f.hidden_field :preffered_date
+    =f.label :preffered_date
+    =@order.preffered_date
+  
+  .field
+    =f.hidden_field :length
+    =f.label :length
+    =@order.length
+
+    =f.hidden_field :width
+    =f.label :width
+    =@order.width
+  
+  .field
+    =f.hidden_field :message
+    =f.label :message
+    =@order.message
+
+  =f.submit '送信', :class => 'btn btn-primary'
+
+= debug(params) if Rails.env.development?

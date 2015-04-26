@@ -1,0 +1,64 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(//fonts.googleapis.com/css?family=Pinyon+Script);
+// @import url(//fonts.googleapis.com/css?family=Niconne);
+
+$base_color: rgb(252, 250, 245);
+$main_color: rgb(233, 217, 187);
+$accent_color: rgb(111, 75, 62);
+// $topic_title_color: rgb(62,57,60);
+$topic_title_color: #796109; 
+
+body { padding-top: 60px;}
+
+// .container { 
+//   width: 800px;
+// }
+.container-fluid{
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 800px;
+}
+
+.topic_title{
+  color: $topic_title_color;
+  font-family: 'Pinyon Script', cursive;
+  // font-family: 'Niconne', cursive;
+}
+
+/* extend bootstrap */
+.navbar-default {
+  background-color: $main_color;
+}
+
+.thumbnail {
+  background-color: $main_color;
+}
+
+.table-price > thead > tr > th,
+.table-price > thead > tr > td,
+.table-price > tbody > tr > th,
+.table-price > tbody > tr > td,
+.table-price > tfoot > tr > th,
+.table-price > tfoot > tr > td {
+  background-color: $main_color;
+  border: 1px solid $accent_color;
+}
+
+.table-order > thead > tr > th,
+.table-order > thead > tr > td,
+.table-order > tbody > tr > th,
+.table-order > tbody > tr > td,
+.table-order > tfoot > tr > th,
+.table-order > tfoot > tr > td {
+  background-color: $main_color;
+  border: 1px solid $accent_color;
+  }
+
+.preffered_date_position{
+  padding-top: 7px;
+}
+
+.btn-order{
+  padding-left: 8px;
+}

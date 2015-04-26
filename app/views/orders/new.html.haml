@@ -1,0 +1,164 @@
+:javascript
+  function chkradio(obj){
+    var objID = obj.getAttributeNode('id').nodeValue;
+    var other_purpose = document.getElementById('other_purpose')
+    if(objID == 'other'){
+      other_purpose.style.visibility = 'visible';
+    }else{
+      other_purpose.style.visibility = 'hidden';
+    }
+  }
+
+  function chkpreffered_date(obj){
+    now = new Date();
+    preffered_year = document.querySelector('#order_preffered_date_1i').options.selectedIndex + now.getFullYear();
+    preffered_month = document.querySelector('#order_preffered_date_2i').options.selectedIndex;
+    preffered_day = document.querySelector('#order_preffered_date_3i').options.selectedIndex + 1;
+    preffered_date = new Date(preffered_year, preffered_month, preffered_day);
+    most_recent_date = new Date( now.getFullYear(), now.getMonth(), now.getDate() );
+    most_recent_date.setDate( most_recent_date.getDate() + 30 ); 
+
+    if(preffered_date >= most_recent_date){
+      console.log("yey");
+      document.querySelector('#preffered_date_label').style.visibility = 'hidden';
+    }else{
+      console.log("non");
+      document.querySelector('#preffered_date_label').style.visibility = 'visible';
+    }
+  }
+:css
+  #other_purpose{
+    visibility:hidden;
+    }
+
+  #preffered_date_label{
+    visibility:hidden;
+    }
+- flash.each do |key, value|
+  %div{class: "alert alert-#{key}"}= value
+%h1.topic_title.text-center Contact
+%h3 下記項目を入力して確認ボタンを押してください
+=form_for(@order, url:orders_confirm_path, :html => {:class => "form-horizontal"}) do |f|
+  .form-group
+    =f.label :name, class: "control-label col-sm-3"
+    .col-sm-7
+      .form-inline
+        =f.text_field :last_name, class: "form-control", placeholder: "姓", size:"26"
+        =f.text_field :first_name, class: "form-control", placeholder: "名", size:"26"
+  .form-group
+    =f.label :name_kana, class: "control-label col-sm-3"
+    .col-sm-7
+      .form-inline
+        =f.text_field :last_name_kana, class: "form-control", placeholder: "セイ", size: '26'
+        =f.text_field :first_name_kana, class: "form-control", placeholder: "メイ", size: '26'
+  .form-group
+    =f.label :mail, class: "control-label col-sm-3"
+    .col-sm-7
+      =f.text_field :mail, class: "form-control", placeholder: "abc@yourmail.com"
+  .form-group
+    =f.label :phone_number, class: "control-label col-sm-3"
+    .col-sm-7
+      =f.text_field :phone_number, class: "form-control", placeholder: "123-456-789"
+  .form-group
+    =f.label :purpose, class: "control-label col-sm-3"
+    .col-sm-9{style: "vertical-align: middle"}
+      .form-inline
+        .radio-inline
+          =f.radio_button(:purpose, :signboard, checked: true, id: "signboard", onclick: "chkradio(this)") 
+          =f.label :signboard
+        .radio-inline
+          =f.radio_button(:purpose, :interior, id:"interior", onclick: "chkradio(this)")
+          =f.label :interior
+        .radio-inline
+          =f.radio_button(:purpose, :wedding, id:"wedding", onclick: "chkradio(this)")
+          =f.label :wedding
+        .radio-inline
+          =f.radio_button(:purpose, :other, id:"other", onclick: "chkradio(this)")
+          =f.label :other
+        =f.text_field :other_purpose, id: "other_purpose", class: "form-control"
+  .form-group
+    =f.label :preffered_date, class: "control-label col-sm-3"
+    .col-sm-7.preffered_date_position
+      = f.date_select :preffered_date, {class: "form-control", start_year: Time.now.year, default: Date.today + 30}, onchange: "chkpreffered_date(this)"
+      %span#preffered_date_label.label.label-danger 最低３０日以降を選択してください
+  .form-group
+    =f.label :size, class: "control-label col-sm-3"
+    .col-sm-7.preffered_date_position
+      .form-inline
+        =f.text_field :length, class: "form-control", placeholder: "縦", size:"26"
+        =f.text_field :width, class: "form-control", placeholder: "横", size:"26"
+
+  .form-group
+    =f.label :message, class: "control-label col-sm-3"
+    .col-sm-7
+      = f.text_area :message, class: "form-control"
+  .col-sm-offset-3
+    .btn-order
+      =f.submit '確認', :class => 'btn btn-primary'
+-# =form_for(@order, url:orders_confirm_path) do |f|
+-# =form_for(@order, url:orders_confirm_path, :html => {:class => "abc"}) do |f|
+  %table.table.table-bordered.table-order{bordercolor: "#ff0000"}
+    %tr
+      %td{style: "vertical-align: middle"}= f.label :name, class: "control-label", style: "vertical-align: middle"
+      %td{style: "vertical-align: middle"}
+        .form-inline
+          =f.label :last_name, class: "control-label"
+          =f.text_field :last_name, class: "form-control"
+          =f.label :first_name, class: "control-label"
+          =f.text_field :first_name, class: "form-control"
+    %tr
+      %td{style: "vertical-align: middle"}= f.label :name_kana, class: "control-label"
+      %td{style: "vertical-align: middle"}
+        .form-inline
+          =f.label :last_name_kana, class: "control-label"
+          =f.text_field :last_name_kana, class: "form-control"
+          =f.label :first_name_kana, class: "control-label"
+          =f.text_field :first_name_kana, class: "form-control"
+    %tr
+      -# %td= f.label :mail, class: "control-label"
+      %td{style: "vertical-align: middle"}
+        .form-inline
+          = f.label :mail, class: "control-label"
+      %td{style: "vertical-align: middle"}= f.text_field :mail, class: "form-control"
+    %tr
+      %td{style: "vertical-align: middle"}= f.label :phone_number, class: "control-label"
+      %td{style: "vertical-align: middle"}= f.text_field :phone_number, class: "form-control"
+    %tr
+      %td{style: "vertical-align: middle"}= f.label :purpose, class: "control-label"
+      %td{style: "vertical-align: middle"}
+        .form-inline
+          .radio-inline
+            =f.radio_button(:purpose, :signboard, checked: true, id: "signboard", onclick: "chkradio(this)")
+            =f.label :signboard, class: "control-label"
+          .radio-inline
+            =f.radio_button(:purpose, :interior, id:"interior", onclick: "chkradio(this)")
+            =f.label :interior, class: "control-label"
+          .radio-inline
+            =f.radio_button(:purpose, :wedding, id:"wedding", onclick: "chkradio(this)")
+            =f.label :wedding, class: "control-label"
+          .radio-inline
+            =f.radio_button(:purpose, :other, id:"other", onclick: "chkradio(this)")
+            =f.label :other, class: "control-label"
+          =f.label :other_purpose, class: "control-label"
+          -# =f.label :other
+          =f.text_field :other_purpose, id: "other_purpose", class: "form-control", class: "form-control"
+    %tr
+      %td{style: "vertical-align: middle"}
+        = f.label :preffered_date, class: "control-label"
+      %td{style: "vertical-align: middle"}
+        = f.date_select :preffered_date,
+        {class: "form-control", start_year: Time.now.year, default: Date.today + 30},
+        onchange: "chkpreffered_date(this)"
+        %span#preffered_date_label.label.label-danger 最低３０日以降を選択してください
+    %tr
+      %td{style: "vertical-align: middle"}= f.label :size, class: "control-label"
+      %td{style: "vertical-align: middle"}
+        .form-inline
+          =f.label :length, class: "control-label"
+          =f.text_field :length, class: "form-control"
+          =f.label :width, class: "control-label"
+          =f.text_field :width, class: "form-control"
+    %tr
+      %td{style: "vertical-align: middle"}= f.label :message, class: "control-label"
+      %td{style: "vertical-align: middle"}= f.text_area :message, class: "form-control"
+  =f.submit '確認', :class => 'btn btn-primary'

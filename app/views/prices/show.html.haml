@@ -1,0 +1,27 @@
+%h1.topic_title.text-center &nbsp;Price list&nbsp;
+%table.table.table-bordered.table-price
+  %tr
+    %th サイズ
+    %th 価格
+    %th 用途
+  - @price.each do |e|
+    %tr
+      %td= e.size
+      %td= e.price.to_s + '円'
+      %td= e.purpose
+
+%h1.topic_title.text-center &nbsp;How to order&nbsp;
+%br
+%h4 1.ご希望のサイズを選択してください
+%br
+%h4 2.メールアドレス、電話番号をご入力ください
+%br
+%h4 3.用途をご選択ください。
+%br
+%h4 4.送信ボタンをクリックしてください
+
+.text-center
+  %img.text-center.media-object= link_to image_tag('button_contact.jpg'), new_order_path
+        
+-# = @price.each{ |e|; p (e.price)}
+= debug(params) if Rails.env.development?
