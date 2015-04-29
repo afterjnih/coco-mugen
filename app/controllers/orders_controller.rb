@@ -26,6 +26,8 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:last_name, :first_name,
                                     :last_name_kana, :first_name_kana,
                                     :mail, :phone_number, :cellphone_number,
+                                    :residence, :mailing_address,
+                                    :residence_zip_code, :mailing_zip_code,
                                     :purpose, :other_purpose, :preffered_date,
                                     :length, :width,
                                     :message

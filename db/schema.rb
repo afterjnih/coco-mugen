@@ -11,24 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429095321) do
+ActiveRecord::Schema.define(version: 20150429121239) do
 
   create_table "orders", force: true do |t|
-    t.string   "last_name",        null: false
-    t.string   "first_name",       null: false
-    t.string   "last_name_kana",   null: false
-    t.string   "first_name_kana",  null: false
-    t.string   "mail",             null: false
+    t.string   "last_name",          null: false
+    t.string   "first_name",         null: false
+    t.string   "last_name_kana",     null: false
+    t.string   "first_name_kana",    null: false
+    t.string   "mail",               null: false
     t.string   "phone_number"
-    t.text     "purpose",          null: false
+    t.text     "purpose",            null: false
     t.text     "other_purpose"
-    t.date     "preffered_date",   null: false
-    t.float    "length",           null: false
-    t.float    "width",            null: false
-    t.text     "message",          null: false
+    t.date     "preffered_date",     null: false
+    t.float    "length",             null: false
+    t.float    "width",              null: false
+    t.text     "message",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cellphone_number"
+    t.string   "residence"
+    t.string   "mailing_address"
+    t.string   "residence_zip_code"
+    t.string   "mailing_zip_code"
   end
 
   create_table "prices", force: true do |t|
