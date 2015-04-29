@@ -56,7 +56,8 @@
     .field
       =f.hidden_field :purpose
       =f.label :purpose
-      =@order.purpose
+      =t('activerecord.attributes.order.' + @order.purpose)
+      -# =@order.purpose
   - else
     .field
       =f.hidden_field :purpose, value: "other"
