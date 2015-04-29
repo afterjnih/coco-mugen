@@ -27,6 +27,10 @@
     =f.hidden_field :phone_number
     =f.label :phone_number
     =@order.phone_number
+
+    =f.hidden_field :cellphone_number
+    =f.label :cellphone_number
+    =@order.cellphone_number
     
   - if @order.other_purpose == ""
     .field

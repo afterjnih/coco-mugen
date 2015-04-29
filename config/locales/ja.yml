@@ -203,6 +203,7 @@ ja:
         first_name_kana: 'メイ'
         mail: 'メールアドレス'
         phone_number: '電話番号'
+        cellphone_number: '携帯'
         purpose: '用途'
         other_purpose: ''
         preffered_date: '希望日'

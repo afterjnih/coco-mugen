@@ -56,9 +56,11 @@
     .col-sm-7
       =f.text_field :mail, class: "form-control", placeholder: "abc@yourmail.com"
   .form-group
-    =f.label :phone_number, class: "control-label col-sm-3"
+    =f.label :tell, class: "control-label col-sm-3"
     .col-sm-7
-      =f.text_field :phone_number, class: "form-control", placeholder: "123-456-789"
+      .form-inline
+        =f.text_field :phone_number, class: "form-control", placeholder: "自宅", size:"26"
+        =f.text_field :cellphone_number, class: "form-control", placeholder: "携帯", size:"26"
   .form-group
     =f.label :purpose, class: "control-label col-sm-3"
     .col-sm-9{style: "vertical-align: middle"}
