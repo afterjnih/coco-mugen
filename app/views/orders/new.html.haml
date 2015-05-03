@@ -9,6 +9,18 @@
     }
   }
 
+  function chkreceipt(obj){
+    var objID = obj.getAttributeNode('id').nodeValue;
+    var receipt_addresses = document.getElementsByClassName('receipt_address')
+    var receipt_provisos = document.getElementsByClassName('receipt_proviso')
+    if(objID == 'enabled'){
+      receipt_addresses[1].disabled = false;
+      receipt_provisos[1].disabled = false;
+    }else{
+      receipt_addresses[1].disabled = true;
+      receipt_provisos[1].disabled = true; 
+    }
+  }
   function chkpreffered_date(obj){
     now = new Date();
     preffered_year = document.querySelector('#order_preffered_date_1i').options.selectedIndex + now.getFullYear();
@@ -77,6 +89,24 @@
     =f.label :mailing_address, class: "control-label col-sm-3"
     .col-sm-7
       =f.text_field :mailing_address, class: "form-control", placeholder: "東京都豊島区XXX"
+  .form-group
+    =f.label :receipt_enabled ,class: "control-label col-sm-3"
+    .col-sm-9{style: "vertical-align: middle"}
+      .form-inline
+        .radio-inline
+          =f.radio_button(:receipt_enabled, :true, checked: true, id: "enabled", onclick: "chkreceipt(this)") 
+          =f.label :enabled
+        .radio-inline
+          =f.radio_button(:receipt_enabled, :false, id:"disenabled", onclick: "chkreceipt(this)")
+          =f.label :disenabled
+  .form-group
+    =f.label :receipt_address, class: "control-label col-sm-3 receipt_address"
+    .col-sm-7
+      =f.text_field :receipt_address, class: "form-control receipt_address", placeholder: "東京都港区ZZZ"
+  .form-group
+    =f.label :receipt_proviso, class: "control-label col-sm-3 receipt_proviso"
+    .col-sm-7
+      =f.text_field :receipt_proviso, class: "form-control receipt_proviso", placeholder: "チョークアート"
   .form-group
     =f.label :purpose, class: "control-label col-sm-3"
     .col-sm-9{style: "vertical-align: middle"}

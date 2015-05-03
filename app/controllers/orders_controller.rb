@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
                                     :mail, :phone_number, :cellphone_number,
                                     :residence, :mailing_address,
                                     :residence_zip_code, :mailing_zip_code,
+                                    :receipt_enabled, :receipt_address, :receipt_proviso,
                                     :purpose, :other_purpose, :preffered_date,
                                     :length, :width,
                                     :message

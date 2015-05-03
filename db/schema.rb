@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429121239) do
+ActiveRecord::Schema.define(version: 20150430122208) do
 
   create_table "orders", force: true do |t|
     t.string   "last_name",          null: false
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20150429121239) do
     t.string   "mailing_address"
     t.string   "residence_zip_code"
     t.string   "mailing_zip_code"
+    t.boolean  "receipt_enabled"
+    t.string   "receipt_address"
+    t.string   "receipt_proviso"
   end
 
   create_table "prices", force: true do |t|

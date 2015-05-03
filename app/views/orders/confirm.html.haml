@@ -52,6 +52,25 @@
     =f.label :mailing_address
     =@order.mailing_address
 
+  - if @order.receipt_enabled == true 
+    .field
+      =f.hidden_field :receipt_enabled
+      =f.label :receipt_enabled
+      ="あり"
+    .field
+      =f.hidden_field :receipt_address
+      =f.label :receipt_address
+      =@order.receipt_address
+    .field
+      =f.hidden_field :receipt_proviso
+      =f.label :receipt_proviso
+      =@order.receipt_proviso
+  - else
+    .field
+      =f.hidden_field :receipt_enabled
+      =f.label :receipt_enabled
+      ="なし"
+
   - if @order.other_purpose == ""
     .field
       =f.hidden_field :purpose
