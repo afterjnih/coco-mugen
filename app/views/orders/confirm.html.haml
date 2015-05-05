@@ -90,13 +90,16 @@
     =@order.preffered_date
   
   .field
-    =f.hidden_field :length
-    =f.label :length
-    =@order.length
-
-    =f.hidden_field :width
-    =f.label :width
-    =@order.width
+    =f.hidden_field :size
+    =f.label :size
+    - unless @order.size == "other"
+      =@order.size
+    - else
+      %span
+      =@order.length
+      (cm) ×
+      =@order.width
+      (cm)
   
   .field
     =f.hidden_field :message

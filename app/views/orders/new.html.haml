@@ -38,12 +38,25 @@
       document.querySelector('#preffered_date_label').style.visibility = 'visible';
     }
   }
+
+  function chksize(obj){
+    size = document.querySelector('#order_size').options.selectedIndex;
+    if(size != 5){
+      document.querySelector('#other_size').style.visibility = 'hidden';
+    }else{
+      document.querySelector('#other_size').style.visibility = 'visible';
+    }
+  }
 :css
   #other_purpose{
     visibility:hidden;
     }
 
   #preffered_date_label{
+    visibility:hidden;
+    }
+
+  #other_size{
     visibility:hidden;
     }
 - flash.each do |key, value|
@@ -131,11 +144,46 @@
       %span#preffered_date_label.label.label-danger 最低３０日以降を選択してください
   .form-group
     =f.label :size, class: "control-label col-sm-3"
-    .col-sm-7.preffered_date_position
+    -# .col-sm-7.preffered_date_position
+    .col-sm-9.preffered_date_position{style: "vertical-align: middle"}
       .form-inline
-        =f.text_field :length, class: "form-control", placeholder: "縦", size:"26"
-        =f.text_field :width, class: "form-control", placeholder: "横", size:"26"
+        =f.select :size, {A5: "A5", A4: "A4", A3: "A3", A2: "A2", A1: "A1", その他: "other"}, {}, {onchange: "chksize(this)"}
+        %span#other_size
+          &nbsp;
+          =f.text_field :length, class: "form-control input-sm", placeholder: "25", size: '3', placeholder: "縦(cm)"
+          ×
+          =f.text_field :width, class: "form-control input-sm", placeholder: "25", size: '3', placeholder: "横(cm)"
+  -# .form-group
+  -#   =f.label :size, class: "control-label col-sm-3"
+  -#   .col-sm-9{style: "vertical-align: middle"}
+  -#     .form-inline
+  -#       .radio-inline
+  -#         =f.radio_button(:size, :a5, checked: true, id: "a5", onclick: "chkradio(this)") 
+  -#         =f.label :a5
+  -#       .radio-inline
+  -#         =f.radio_button(:size, :a4, id:"a4", onclick: "chkradio(this)")
+  -#         =f.label :a4
+  -#       .radio-inline
+  -#         =f.radio_button(:size, :a3, id:"a3", onclick: "chkradio(this)")
+  -#         =f.label :a3
+  -#       .radio-inline
+  -#         =f.radio_button(:size, :a2, id:"a2", onclick: "chkradio(this)")
+  -#         =f.label :a2
+  -#       .radio-inline
+  -#         =f.radio_button(:size, :a1, id:"a1", onclick: "chkradio(this)")
+  -#         =f.label :a1
+  -#       .radio-inline
+  -#         =f.radio_button(:size, :other, id:"other", onclick: "chkradio(this)")
+  -#         =f.label :other
+  -#       =f.text_field :other_purpose, id: "other_purpose", class: "form-control"
 
+  -# .form-group
+  -#   =f.label :size, class: "control-label col-sm-3"
+  -#   .col-sm-7.preffered_date_position
+  -#     .form-inline
+  -#       =f.text_field :length, class: "form-control", placeholder: "縦", size:"26"
+  -#       =f.text_field :width, class: "form-control", placeholder: "横", size:"26"
+  -#
   .form-group
     =f.label :message, class: "control-label col-sm-3"
     .col-sm-7

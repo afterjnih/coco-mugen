@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
                                     :residence_zip_code, :mailing_zip_code,
                                     :receipt_enabled, :receipt_address, :receipt_proviso,
                                     :purpose, :other_purpose, :preffered_date,
-                                    :length, :width,
+                                    :size, :length, :width,
                                     :message
                                    )
     end
