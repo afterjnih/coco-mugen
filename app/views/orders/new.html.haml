@@ -187,7 +187,7 @@
   .form-group
     =f.label :message, class: "control-label col-sm-3"
     .col-sm-7
-      = f.text_area :message, class: "form-control"
+      = f.text_area :message, class: "form-control", placeholder: "その他ご希望、メッセージ等あればご記入ください"
   .col-sm-offset-3
     .btn-order
       =f.submit '確認', :class => 'btn btn-primary'
