@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resource :link , only: :show
   resource :order, only: [:new, :create]
   resource :qa, only: :show
+  resource :about, only: :show
   # resources :orders, only: [:show, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
