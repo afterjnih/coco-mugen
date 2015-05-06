@@ -87,21 +87,17 @@
         =f.text_field :phone_number, class: "form-control", placeholder: "自宅", size:"26"
         =f.text_field :cellphone_number, class: "form-control", placeholder: "携帯", size:"26"
   .form-group
-    =f.label :residence_zip_code, class: "control-label col-sm-3"
-    .col-sm-7
-      =f.text_field :residence_zip_code, class: "form-control", placeholder: "111-1111"
-  .form-group
     =f.label :residence, class: "control-label col-sm-3"
     .col-sm-7
-      =f.text_field :residence, class: "form-control", placeholder: "東京都新宿区XXX"
-  .form-group
-    =f.label :mailing_zip_code, class: "control-label col-sm-3"
-    .col-sm-7
-      =f.text_field :mailing_zip_code, class: "form-control", placeholder: "222-2222"
+      .form-inline
+        =f.text_field :residence_zip_code, class: "form-control", placeholder: "〒", size:7
+        =f.text_field :residence, class: "form-control", placeholder: "東京都新宿区XXX", size:45
   .form-group
     =f.label :mailing_address, class: "control-label col-sm-3"
     .col-sm-7
-      =f.text_field :mailing_address, class: "form-control", placeholder: "東京都豊島区XXX"
+      .form-inline
+        =f.text_field :mailing_zip_code, class: "form-control", placeholder: "〒", size: "7"
+        =f.text_field :mailing_address, class: "form-control", placeholder: "東京都豊島区XXX", size: "45"
   .form-group
     =f.label :receipt_enabled ,class: "control-label col-sm-3"
     .col-sm-9{style: "vertical-align: middle"}
