@@ -36,14 +36,15 @@
       .form-inline
         =@order.mailing_zip_code
         =@order.mailing_address
-  .form-group
-    =f.label :receipt_address, class: "control-label col-sm-3 receipt_address"
-    .col-sm-7.preffered_date_position
-      =@order.receipt_address
-  .form-group
-    =f.label :receipt_proviso, class: "control-label col-sm-3 receipt_proviso"
-    .col-sm-7.preffered_date_position
-      =@order.receipt_proviso
+  - if @order.receipt_enabled == true
+    .form-group
+      =f.label :receipt_address, class: "control-label col-sm-3 receipt_address"
+      .col-sm-7.preffered_date_position
+        =@order.receipt_address
+    .form-group
+      =f.label :receipt_proviso, class: "control-label col-sm-3 receipt_proviso"
+      .col-sm-7.preffered_date_position
+        =@order.receipt_proviso
   .form-group
     - if @order.other_purpose == ""
       .field
