@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(//fonts.googleapis.com/css?family=Pinyon+Script);
+@import url(//fonts.googleapis.com/css?family=Noto+Serif);
 // @import url(//fonts.googleapis.com/css?family=Niconne);
 
 $base_color: rgb(252, 250, 245);
@@ -22,8 +23,9 @@ body { padding-top: 60px;}
 
 .topic_title{
   color: $topic_title_color;
-  font-family: 'Pinyon Script', cursive;
+  // font-family: 'Pinyon Script', cursive;
   // font-family: 'Niconne', cursive;
+  font-family: 'Noto Serif', serif;
 }
 
 /* extend bootstrap */
@@ -61,4 +63,12 @@ body { padding-top: 60px;}
 
 .btn-order{
   padding-left: 8px;
+}
+
+.gt10-ja{
+  font-size: 13px;
+}
+
+.gt17-en{
+  font-size: 11pt;
 }
