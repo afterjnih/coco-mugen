@@ -219,6 +219,7 @@ ja:
         size: 'サイズ'
         length: '縦(センチ)'
         width: '横(センチ)'
+        preffered_design_number: 'ご希望デザインナンバー'
         message: 'その他メッセージ等'
         signboard: '看板'
         interior: 'インテリア'
