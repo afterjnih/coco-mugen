@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505084533) do
+ActiveRecord::Schema.define(version: 20150524074146) do
 
   create_table "orders", force: true do |t|
-    t.string   "last_name",          null: false
-    t.string   "first_name",         null: false
-    t.string   "last_name_kana",     null: false
-    t.string   "first_name_kana",    null: false
-    t.string   "mail",               null: false
+    t.string   "last_name",               null: false
+    t.string   "first_name",              null: false
+    t.string   "last_name_kana",          null: false
+    t.string   "first_name_kana",         null: false
+    t.string   "mail",                    null: false
     t.string   "phone_number"
-    t.text     "purpose",            null: false
+    t.text     "purpose",                 null: false
     t.text     "other_purpose"
-    t.date     "preffered_date",     null: false
-    t.float    "length",             null: false
-    t.float    "width",              null: false
-    t.text     "message",            null: false
+    t.date     "preffered_date",          null: false
+    t.float    "length",                  null: false
+    t.float    "width",                   null: false
+    t.text     "message",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cellphone_number"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150505084533) do
     t.string   "receipt_address"
     t.string   "receipt_proviso"
     t.string   "size"
+    t.string   "preffered_design_number"
   end
 
   create_table "prices", force: true do |t|

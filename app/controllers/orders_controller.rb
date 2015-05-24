@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
                                     :receipt_enabled, :receipt_address, :receipt_proviso,
                                     :purpose, :other_purpose, :preffered_date,
                                     :size, :length, :width,
-                                    :message
+                                    :preffered_design_number, :message
                                    )
     end
 end

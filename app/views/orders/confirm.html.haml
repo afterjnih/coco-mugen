@@ -80,6 +80,10 @@
       .col-sm-7.preffered_date_position
         =@order.size
   .form-group
+    =f.label :preffered_design_number, class: "control-label col-sm-3"
+    .col-sm-7.preffered_date_position
+      =@order.preffered_design_number
+  .form-group
     =f.label :message, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position
       =@order.message
