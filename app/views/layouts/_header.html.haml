@@ -3,9 +3,9 @@
     .container-fluid
       -# .row
       -#   .col-xs-3
-      -#   .col-xs-9 
+      -#   .col-xs-9
       .navbar-header
-        %button.navbar-toggle{ type: "button", 
+        %button.navbar-toggle{ type: "button",
                                "data-toggle" => "collapse",
                                "data-target" => "#navbarmenu" }
           %span.sr-only Toggle navigation
@@ -17,9 +17,9 @@
       .navbar-collapse.collapse#navbarmenu
         %ul.nav.navbar-nav
           %li= link_to 'About', about_path
-          %li= link_to 'ギャラリー', gallery_path
-          %li= link_to '料金', price_path
-          %li= link_to '注文',new_order_path
+          %li= link_to 'Garalley', gallery_path
+          %li= link_to 'Price', price_path
+          %li= link_to 'Order',new_order_path
           %li= link_to 'Q&A', qa_path
           %li.dropdown
             %a.dropdown-toggle{ "data-toggle" => "dropdown", href: '#' } Dropdown
