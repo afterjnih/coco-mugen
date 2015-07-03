@@ -81,10 +81,6 @@
       .col-sm-7.preffered_date_position
         =@order.size
   .form-group
-    =f.label :preffered_design_number, class: "control-label col-sm-3"
-    .col-sm-7.preffered_date_position
-      =@order.preffered_design_number
-  .form-group
     =f.label :message, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position
       =@order.message
@@ -102,7 +98,7 @@
   -#   =f.hidden_field :last_name_kana
   -#   =f.label :last_name_kana
   -#   =@order.last_name_kana
-  -#   
+  -#
   -#   =f.hidden_field :first_name_kana
   -#   =f.label :first_name_kana
   -#   =@order.first_name_kana
@@ -120,7 +116,7 @@
   -#   =f.hidden_field :cellphone_number
   -#   =f.label :cellphone_number
   -#   =@order.cellphone_number
-  -#   
+  -#
   -# .field
   -#   =f.hidden_field :residence_zip_code
   -#   =f.label :residence_zip_code
@@ -141,7 +137,7 @@
   -#   =f.label :mailing_address
   -#   =@order.mailing_address
   -#
-  -# - if @order.receipt_enabled == true 
+  -# - if @order.receipt_enabled == true
   -#   .field
   -#     =f.hidden_field :receipt_enabled
   -#     =f.label :receipt_enabled
