@@ -18,7 +18,7 @@
       receipt_provisos[1].disabled = false;
     }else{
       receipt_addresses[1].disabled = true;
-      receipt_provisos[1].disabled = true; 
+      receipt_provisos[1].disabled = true;
     }
   }
   function chkpreffered_date(obj){
@@ -28,7 +28,7 @@
     preffered_day = document.querySelector('#order_preffered_date_3i').options.selectedIndex + 1;
     preffered_date = new Date(preffered_year, preffered_month, preffered_day);
     most_recent_date = new Date( now.getFullYear(), now.getMonth(), now.getDate() );
-    most_recent_date.setDate( most_recent_date.getDate() + 30 ); 
+    most_recent_date.setDate( most_recent_date.getDate() + 30 );
 
     if(preffered_date >= most_recent_date){
       console.log("yey");
@@ -103,7 +103,7 @@
     .col-sm-9{style: "vertical-align: middle"}
       .form-inline
         .radio-inline
-          =f.radio_button(:receipt_enabled, :true, checked: true, id: "enabled", onclick: "chkreceipt(this)") 
+          =f.radio_button(:receipt_enabled, :true, checked: true, id: "enabled", onclick: "chkreceipt(this)")
           =f.label :enabled
         .radio-inline
           =f.radio_button(:receipt_enabled, :false, id:"disenabled", onclick: "chkreceipt(this)")
@@ -111,7 +111,7 @@
   .form-group
     =f.label :receipt_address, class: "control-label col-sm-3 receipt_address"
     .col-sm-7
-      =f.text_field :receipt_address, class: "form-control receipt_address", placeholder: "東京都港区ZZZ"
+      =f.text_field :receipt_address, class: "form-control receipt_address"
   .form-group
     =f.label :receipt_proviso, class: "control-label col-sm-3 receipt_proviso"
     .col-sm-7
@@ -121,7 +121,7 @@
     .col-sm-9{style: "vertical-align: middle"}
       .form-inline
         .radio-inline
-          =f.radio_button(:purpose, :signboard, checked: true, id: "signboard", onclick: "chkradio(this)") 
+          =f.radio_button(:purpose, :signboard, checked: true, id: "signboard", onclick: "chkradio(this)")
           =f.label :signboard
         .radio-inline
           =f.radio_button(:purpose, :interior, id:"interior", onclick: "chkradio(this)")
@@ -154,7 +154,7 @@
   -#   .col-sm-9{style: "vertical-align: middle"}
   -#     .form-inline
   -#       .radio-inline
-  -#         =f.radio_button(:size, :a5, checked: true, id: "a5", onclick: "chkradio(this)") 
+  -#         =f.radio_button(:size, :a5, checked: true, id: "a5", onclick: "chkradio(this)")
   -#         =f.label :a5
   -#       .radio-inline
   -#         =f.radio_button(:size, :a4, id:"a4", onclick: "chkradio(this)")
