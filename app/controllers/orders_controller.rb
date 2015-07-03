@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     unless @order.purpose == 'other'
-      @order.other_purpose = "" 
+      @order.other_purpose = ""
     end
   end
 
@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
                                     :receipt_enabled, :receipt_address, :receipt_proviso,
                                     :purpose, :other_purpose, :preffered_date,
                                     :size, :length, :width,
-                                    :preffered_design_number, :message
+                                    :remarks
                                    )
     end
 end
