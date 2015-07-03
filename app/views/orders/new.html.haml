@@ -181,9 +181,9 @@
   -#       =f.text_field :width, class: "form-control", placeholder: "横", size:"26"
   -#
   .form-group
-    =f.label :message, class: "control-label col-sm-3"
+    =f.label :remarks, class: "control-label col-sm-3"
     .col-sm-7
-      = f.text_area :message, class: "form-control", placeholder: "その他ご希望、メッセージ等あればご記入ください"
+      = f.text_area :remarks, class: "form-control", placeholder: "その他ご希望、ご質問、イメージ等あればご記入ください"
   .col-sm-offset-3
     .btn-order
       =f.submit '確認', :class => 'btn btn-primary'
@@ -251,6 +251,6 @@
           =f.label :width, class: "control-label"
           =f.text_field :width, class: "form-control"
     %tr
-      %td{style: "vertical-align: middle"}= f.label :message, class: "control-label"
-      %td{style: "vertical-align: middle"}= f.text_area :message, class: "form-control"
+      %td{style: "vertical-align: middle"}= f.label :remarks, class: "control-label"
+      %td{style: "vertical-align: middle"}= f.text_area :remarks, class: "form-control"
   =f.submit '確認', :class => 'btn btn-primary'

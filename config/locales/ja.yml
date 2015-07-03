@@ -219,7 +219,7 @@ ja:
         size: 'サイズ'
         length: '縦(センチ)'
         width: '横(センチ)'
-        message: 'その他メッセージ等'
+        remarks: '備考'
         signboard: '看板'
         interior: 'インテリア'
         wedding: '結婚式'
