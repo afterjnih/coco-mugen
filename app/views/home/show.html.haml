@@ -10,6 +10,7 @@
     %li.active{ "data-target" => "myCarousel", "data-slide-to" => "0", "class" => "img-responsive" }
     %li{ "data-target" => "myCarousel", "data-slide-to" => "1", "class" => "img-responsive" }
     %li{ "data-target" => "myCarousel", "data-slide-to" => "2", "class" => "img-responsive" }
+    %li{ "data-target" => "myCarousel", "data-slide-to" => "3", "class" => "img-responsive" }
   .carousel-inner
     .item.active
       = image_tag('home/top_001.jpg', :alt => "FirstSlide")
@@ -17,6 +18,8 @@
       = image_tag ("home/top_002.jpg")
     .item
       = image_tag('home/top_003.jpg')
+    .item
+      = image_tag('home/top_004.jpg')
   %a.left.carousel-control{href: "#myCarousel", role: "button", "data-slide" => "prev" }
     %span.glyphicon.glyphicon-chevron-left
   %a.right.carousel-control{href: "#myCarousel", role: "button", "data-slide" => "next" }
