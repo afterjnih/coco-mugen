@@ -47,23 +47,6 @@
       document.querySelector('#other_size').style.visibility = 'visible';
     }
   }
-:css
-  #other_purpose{
-    visibility:hidden;
-    }
-
-  #preffered_date_label{
-    visibility:hidden;
-    }
-
-  #other_size{
-    visibility:hidden;
-    }
-
-  .form-border{
-    padding-left: 5px;
-    border-left:solid 3px #f5deb3;
-  }
 - flash.each do |key, value|
   %div{class: "alert alert-#{key}"}= value
 %h1.topic_title.text-center Contact
