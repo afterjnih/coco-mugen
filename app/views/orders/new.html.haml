@@ -14,11 +14,11 @@
     var receipt_addresses = document.getElementsByClassName('receipt_address')
     var receipt_provisos = document.getElementsByClassName('receipt_proviso')
     if(objID == 'enabled'){
-      receipt_addresses[1].disabled = false;
-      receipt_provisos[1].disabled = false;
+      receipt_addresses[0].disabled = false;
+      receipt_provisos[0].disabled = false;
     }else{
-      receipt_addresses[1].disabled = true;
-      receipt_provisos[1].disabled = true; 
+      receipt_addresses[0].disabled = true;
+      receipt_provisos[0].disabled = true;
     }
   }
   function chkpreffered_date(obj){
@@ -28,7 +28,7 @@
     preffered_day = document.querySelector('#order_preffered_date_3i').options.selectedIndex + 1;
     preffered_date = new Date(preffered_year, preffered_month, preffered_day);
     most_recent_date = new Date( now.getFullYear(), now.getMonth(), now.getDate() );
-    most_recent_date.setDate( most_recent_date.getDate() + 30 ); 
+    most_recent_date.setDate( most_recent_date.getDate() + 30 );
 
     if(preffered_date >= most_recent_date){
       console.log("yey");
@@ -47,18 +47,6 @@
       document.querySelector('#other_size').style.visibility = 'visible';
     }
   }
-:css
-  #other_purpose{
-    visibility:hidden;
-    }
-
-  #preffered_date_label{
-    visibility:hidden;
-    }
-
-  #other_size{
-    visibility:hidden;
-    }
 - flash.each do |key, value|
   %div{class: "alert alert-#{key}"}= value
 %h1.topic_title.text-center Contact
@@ -66,62 +54,56 @@
 =form_for(@order, url:orders_confirm_path, :html => {:class => "form-horizontal"}) do |f|
   .form-group
     =f.label :name, class: "control-label col-sm-3"
-    .col-sm-7
+    .col-sm-7.form-border
       .form-inline
         =f.text_field :last_name, class: "form-control", placeholder: "姓", size:"26"
         =f.text_field :first_name, class: "form-control", placeholder: "名", size:"26"
   .form-group
     =f.label :name_kana, class: "control-label col-sm-3"
-    .col-sm-7
+    .col-sm-7.form-border
       .form-inline
         =f.text_field :last_name_kana, class: "form-control", placeholder: "セイ", size: '26'
         =f.text_field :first_name_kana, class: "form-control", placeholder: "メイ", size: '26'
   .form-group
     =f.label :mail, class: "control-label col-sm-3"
-    .col-sm-7
+    .col-sm-7.form-border
       =f.text_field :mail, class: "form-control", placeholder: "abc@yourmail.com"
   .form-group
     =f.label :tell, class: "control-label col-sm-3"
-    .col-sm-7
+    .col-sm-7.form-border
       .form-inline
         =f.text_field :phone_number, class: "form-control", placeholder: "自宅", size:"26"
         =f.text_field :cellphone_number, class: "form-control", placeholder: "携帯", size:"26"
   .form-group
     =f.label :residence, class: "control-label col-sm-3"
-    .col-sm-7
+    .col-sm-7.form-border
       .form-inline
         =f.text_field :residence_zip_code, class: "form-control", placeholder: "〒", size:7
         =f.text_field :residence, class: "form-control", placeholder: "東京都新宿区XXX", size:45
   .form-group
     =f.label :mailing_address, class: "control-label col-sm-3"
-    .col-sm-7
+    .col-sm-7.form-border
       .form-inline
         =f.text_field :mailing_zip_code, class: "form-control", placeholder: "〒", size: "7"
         =f.text_field :mailing_address, class: "form-control", placeholder: "東京都豊島区XXX", size: "45"
   .form-group
     =f.label :receipt_enabled ,class: "control-label col-sm-3"
-    .col-sm-9{style: "vertical-align: middle"}
+    .form-border.col-sm-7{style: "vertical-align: middle"}
       .form-inline
         .radio-inline
-          =f.radio_button(:receipt_enabled, :true, checked: true, id: "enabled", onclick: "chkreceipt(this)") 
+          =f.radio_button(:receipt_enabled, :true, checked: true, id: "enabled", onclick: "chkreceipt(this)")
           =f.label :enabled
         .radio-inline
           =f.radio_button(:receipt_enabled, :false, id:"disenabled", onclick: "chkreceipt(this)")
           =f.label :disenabled
-  .form-group
-    =f.label :receipt_address, class: "control-label col-sm-3 receipt_address"
-    .col-sm-7
-      =f.text_field :receipt_address, class: "form-control receipt_address", placeholder: "東京都港区ZZZ"
-  .form-group
-    =f.label :receipt_proviso, class: "control-label col-sm-3 receipt_proviso"
-    .col-sm-7
-      =f.text_field :receipt_proviso, class: "form-control receipt_proviso", placeholder: "チョークアート"
+      =f.text_field :receipt_address, class: "form-control receipt_address", placeholder: "宛名"
+      =f.text_field :receipt_proviso, class: "form-control receipt_proviso", placeholder: "但書 (例:チョークアート)"
   .form-group
     =f.label :purpose, class: "control-label col-sm-3"
-    .col-sm-9{style: "vertical-align: middle"}
+    .form-border.col-sm-9{style: "vertical-align: middle"}
       .form-inline
         .radio-inline
-          =f.radio_button(:purpose, :signboard, checked: true, id: "signboard", onclick: "chkradio(this)") 
+          =f.radio_button(:purpose, :signboard, checked: true, id: "signboard", onclick: "chkradio(this)")
           =f.label :signboard
         .radio-inline
           =f.radio_button(:purpose, :interior, id:"interior", onclick: "chkradio(this)")
@@ -135,13 +117,13 @@
         =f.text_field :other_purpose, id: "other_purpose", class: "form-control"
   .form-group
     =f.label :preffered_date, class: "control-label col-sm-3"
-    .col-sm-7.preffered_date_position
+    .col-sm-7.preffered_date_position.form-border
       = f.date_select :preffered_date, {class: "form-control", start_year: Time.now.year, default: Date.today + 30}, onchange: "chkpreffered_date(this)"
       %span#preffered_date_label.label.label-danger 最低３０日以降を選択してください
   .form-group
     =f.label :size, class: "control-label col-sm-3"
-    -# .col-sm-7.preffered_date_position
-    .col-sm-9.preffered_date_position{style: "vertical-align: middle"}
+    -# .col-sm-7.preffered_date_position.form-border
+    .form-border.col-sm-9.preffered_date_position{style: "vertical-align: middle"}
       .form-inline
         =f.select :size, {A5: "A5", A4: "A4", A3: "A3", A2: "A2", A1: "A1", その他: "other"}, {}, {onchange: "chksize(this)"}
         %span#other_size
@@ -154,7 +136,7 @@
   -#   .col-sm-9{style: "vertical-align: middle"}
   -#     .form-inline
   -#       .radio-inline
-  -#         =f.radio_button(:size, :a5, checked: true, id: "a5", onclick: "chkradio(this)") 
+  -#         =f.radio_button(:size, :a5, checked: true, id: "a5", onclick: "chkradio(this)")
   -#         =f.label :a5
   -#       .radio-inline
   -#         =f.radio_button(:size, :a4, id:"a4", onclick: "chkradio(this)")
@@ -181,13 +163,9 @@
   -#       =f.text_field :width, class: "form-control", placeholder: "横", size:"26"
   -#
   .form-group
-    =f.label :preffered_design_number, class: "control-label col-sm-3"
-    .col-sm-7
-      =f.text_area :preffered_design_number, class: "form-control", placeholder: "ギャラリーにご希望デザインがありましたらナンバーをご記入ください"
-  .form-group
-    =f.label :message, class: "control-label col-sm-3"
-    .col-sm-7
-      = f.text_area :message, class: "form-control", placeholder: "その他ご希望、メッセージ等あればご記入ください"
+    =f.label :remarks, class: "control-label col-sm-3"
+    .col-sm-7.form-border
+      = f.text_area :remarks, class: "form-control", placeholder: "その他ご希望、ご質問、イメージ等あればご記入ください"
   .col-sm-offset-3
     .btn-order
       =f.submit '確認', :class => 'btn btn-primary'
@@ -255,6 +233,6 @@
           =f.label :width, class: "control-label"
           =f.text_field :width, class: "form-control"
     %tr
-      %td{style: "vertical-align: middle"}= f.label :message, class: "control-label"
-      %td{style: "vertical-align: middle"}= f.text_area :message, class: "form-control"
+      %td{style: "vertical-align: middle"}= f.label :remarks, class: "control-label"
+      %td{style: "vertical-align: middle"}= f.text_area :remarks, class: "form-control"
   =f.submit '確認', :class => 'btn btn-primary'
