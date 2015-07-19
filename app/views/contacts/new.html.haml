@@ -1,0 +1,19 @@
+%h1.topic_title.text-center Contact
+%h3 下記項目を入力して確認ボタンを押してください
+=form_for(@contact, url:contacts_confirm_path, :html => {:class => "form-horizontal"}) do |f|
+  .form-group
+    =f.label :name, class: "control-label col-sm-3"
+    .col-sm-7.form-border
+      .form-inline
+        =f.text_field :name, class: "form-control", placeholder: "氏名", size:"26"
+  .form-group
+    =f.label :mail, class: "control-label col-sm-3"
+    .col-sm-7.form-border
+      =f.text_field :mail, class: "form-control", placeholder: "abc@yourmail.com"
+  .form-group
+    =f.label :content, class: "control-label col-sm-3"
+    .col-sm-7.form-border
+      = f.text_area :content, class: "form-control", placeholder: "問い合わせ内容を記載してください"
+  .col-sm-offset-3
+    .btn-order
+      =f.submit '確認', :class => 'btn btn-primary'
