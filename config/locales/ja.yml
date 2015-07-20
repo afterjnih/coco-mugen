@@ -229,3 +229,7 @@ ja:
         a3: 'A3'
         a2: 'A2'
         a1: 'A1'
+      contact:
+        name: '氏名'
+        mail: 'メールアドレス'
+        content: '問い合わせ内容'
