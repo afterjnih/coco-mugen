@@ -5,9 +5,11 @@ class ContactsController < ApplicationController
 
   def confirm
     @contact = Contact.new(contact_params)
+    # binding.pry
   end
 
   def create
+    # binding.pry
     @contact = Contact.new(contact_params)
     @contact.save!
     InquiryMailer.contact_email(@contact).deliver
