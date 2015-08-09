@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   post 'orders/confirm' => 'orders#confirm'
-  
+  post 'contacts/confirm' => 'contacts#confirm'
+
   root to: "home#show"
   resource :gallery, only: :show
   resource :price, only: :show
   resource :link , only: :show
   resource :order, only: [:new, :create]
+  resource :contact, only: [:new, :create]
   resource :qa, only: :show
   resource :about, only: :show
   # resources :orders, only: [:show, :create]

@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    binding.pry
     @order = Order.new(order_params)
     # binding.pry
     @order.save!
