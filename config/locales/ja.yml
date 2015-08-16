@@ -203,7 +203,7 @@ ja:
         first_name_kana: 'メイ'
         mail: 'メールアドレス'
         phone_number: '電話番号'
-        cellphone_number: '携帯'
+        cellphone_number: '携帯電話番号'
         residence: '住所'
         mailing_address: '送付先'
         residence_zip_code: '〒'

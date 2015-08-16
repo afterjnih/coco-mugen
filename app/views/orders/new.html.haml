@@ -20,11 +20,9 @@
     .col-sm-7.form-border
       =f.text_field :mail, class: "form-control", placeholder: "coco@mugen.com"
   .form-group
-    =f.label :tell, class: "control-label col-sm-3"
+    =f.label :phone_number, class: "control-label col-sm-3"
     .col-sm-7.form-border
-      .form-inline
-        =f.text_field :phone_number, class: "form-control", placeholder: "自宅", size:"26"
-        =f.text_field :cellphone_number, class: "form-control", placeholder: "携帯", size:"26"
+      =f.text_field :phone_number, class: "form-control", placeholder: "03-3000-1234 または 090-0123-4567", size:"26"
   .form-group
     =f.label :residence, class: "control-label col-sm-3"
     .col-sm-7.form-border
