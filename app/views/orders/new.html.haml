@@ -80,37 +80,6 @@
           =f.text_field :length, class: "form-control input-sm", placeholder: "25", size: '3', placeholder: "縦(cm)"
           ×
           =f.text_field :width, class: "form-control input-sm", placeholder: "25", size: '3', placeholder: "横(cm)"
-  -# .form-group
-  -#   =f.label :size, class: "control-label col-sm-3"
-  -#   .col-sm-9{style: "vertical-align: middle"}
-  -#     .form-inline
-  -#       .radio-inline
-  -#         =f.radio_button(:size, :a5, checked: true, id: "a5", onclick: "chkradio(this)")
-  -#         =f.label :a5
-  -#       .radio-inline
-  -#         =f.radio_button(:size, :a4, id:"a4", onclick: "chkradio(this)")
-  -#         =f.label :a4
-  -#       .radio-inline
-  -#         =f.radio_button(:size, :a3, id:"a3", onclick: "chkradio(this)")
-  -#         =f.label :a3
-  -#       .radio-inline
-  -#         =f.radio_button(:size, :a2, id:"a2", onclick: "chkradio(this)")
-  -#         =f.label :a2
-  -#       .radio-inline
-  -#         =f.radio_button(:size, :a1, id:"a1", onclick: "chkradio(this)")
-  -#         =f.label :a1
-  -#       .radio-inline
-  -#         =f.radio_button(:size, :other, id:"other", onclick: "chkradio(this)")
-  -#         =f.label :other
-  -#       =f.text_field :other_purpose, id: "other_purpose", class: "form-control"
-
-  -# .form-group
-  -#   =f.label :size, class: "control-label col-sm-3"
-  -#   .col-sm-7.preffered_date_position
-  -#     .form-inline
-  -#       =f.text_field :length, class: "form-control", placeholder: "縦", size:"26"
-  -#       =f.text_field :width, class: "form-control", placeholder: "横", size:"26"
-  -#
   .form-group
     =f.label :remarks, class: "control-label col-sm-3"
     .col-sm-7.form-border
@@ -118,70 +87,3 @@
   .col-sm-offset-3
     .btn-order
       =f.submit '確認', :class => 'btn btn-primary'
--# =form_for(@order, url:orders_confirm_path) do |f|
--# =form_for(@order, url:orders_confirm_path, :html => {:class => "abc"}) do |f|
-  %table.table.table-bordered.table-order{bordercolor: "#ff0000"}
-    %tr
-      %td{style: "vertical-align: middle"}= f.label :name, class: "control-label", style: "vertical-align: middle"
-      %td{style: "vertical-align: middle"}
-        .form-inline
-          =f.label :last_name, class: "control-label"
-          =f.text_field :last_name, class: "form-control"
-          =f.label :first_name, class: "control-label"
-          =f.text_field :first_name, class: "form-control"
-    %tr
-      %td{style: "vertical-align: middle"}= f.label :name_kana, class: "control-label"
-      %td{style: "vertical-align: middle"}
-        .form-inline
-          =f.label :last_name_kana, class: "control-label"
-          =f.text_field :last_name_kana, class: "form-control"
-          =f.label :first_name_kana, class: "control-label"
-          =f.text_field :first_name_kana, class: "form-control"
-    %tr
-      -# %td= f.label :mail, class: "control-label"
-      %td{style: "vertical-align: middle"}
-        .form-inline
-          = f.label :mail, class: "control-label"
-      %td{style: "vertical-align: middle"}= f.text_field :mail, class: "form-control"
-    %tr
-      %td{style: "vertical-align: middle"}= f.label :phone_number, class: "control-label"
-      %td{style: "vertical-align: middle"}= f.text_field :phone_number, class: "form-control"
-    %tr
-      %td{style: "vertical-align: middle"}= f.label :purpose, class: "control-label"
-      %td{style: "vertical-align: middle"}
-        .form-inline
-          .radio-inline
-            =f.radio_button(:purpose, :signboard, checked: true, id: "signboard", onclick: "chkradio(this)")
-            =f.label :signboard, class: "control-label"
-          .radio-inline
-            =f.radio_button(:purpose, :interior, id:"interior", onclick: "chkradio(this)")
-            =f.label :interior, class: "control-label"
-          .radio-inline
-            =f.radio_button(:purpose, :wedding, id:"wedding", onclick: "chkradio(this)")
-            =f.label :wedding, class: "control-label"
-          .radio-inline
-            =f.radio_button(:purpose, :other, id:"other", onclick: "chkradio(this)")
-            =f.label :other, class: "control-label"
-          =f.label :other_purpose, class: "control-label"
-          -# =f.label :other
-          =f.text_field :other_purpose, id: "other_purpose", class: "form-control", class: "form-control"
-    %tr
-      %td{style: "vertical-align: middle"}
-        = f.label :preffered_date, class: "control-label"
-      %td{style: "vertical-align: middle"}
-        = f.date_select :preffered_date,
-        {class: "form-control", start_year: Time.now.year, default: Date.today + 30},
-        onchange: "chkpreffered_date(this)"
-        %span#preffered_date_label.label.label-danger 最低３０日以降を選択してください
-    %tr
-      %td{style: "vertical-align: middle"}= f.label :size, class: "control-label"
-      %td{style: "vertical-align: middle"}
-        .form-inline
-          =f.label :length, class: "control-label"
-          =f.text_field :length, class: "form-control"
-          =f.label :width, class: "control-label"
-          =f.text_field :width, class: "form-control"
-    %tr
-      %td{style: "vertical-align: middle"}= f.label :remarks, class: "control-label"
-      %td{style: "vertical-align: middle"}= f.text_area :remarks, class: "form-control"
-  =f.submit '確認', :class => 'btn btn-primary'
