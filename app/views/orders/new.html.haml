@@ -63,7 +63,7 @@
         .radio-inline
           =f.radio_button(:purpose, :other, id:"other", onclick: "chkradio(this)")
           =f.label :other
-        =f.text_field :other_purpose, id: "other_purpose", class: "form-control"
+        =f.text_field :other_purpose, id: "other_purpose", class: "form-control", placeholder: "その他の用途", disabled: true
   .form-group
     =f.label :preffered_date, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position.form-border
@@ -77,9 +77,9 @@
         =f.select :size, {A5: "A5", A4: "A4", A3: "A3", A2: "A2", A1: "A1", その他: "other"}, {}, {onchange: "chksize(this)"}
         %span#other_size
           &nbsp;
-          =f.text_field :length, class: "form-control input-sm", placeholder: "25", size: '3', placeholder: "縦(cm)"
+          =f.text_field :length, class: "form-control input-sm", id: "height", placeholder: "25", size: '3', placeholder: "縦(cm)", disabled: true
           ×
-          =f.text_field :width, class: "form-control input-sm", placeholder: "25", size: '3', placeholder: "横(cm)"
+          =f.text_field :width, class: "form-control input-sm", id: "width", placeholder: "25", size: '3', placeholder: "横(cm)", disabled: true
   .form-group
     =f.label :remarks, class: "control-label col-sm-3"
     .col-sm-7.form-border

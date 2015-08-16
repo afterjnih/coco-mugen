@@ -6,9 +6,9 @@ window.chkradio = (obj) ->
   objID = obj.getAttributeNode('id').nodeValue
   other_purpose = document.getElementById('other_purpose')
   if objID is 'other'
-    other_purpose.style.visibility = 'visible'
+    other_purpose.disabled = false
   else
-    other_purpose.style.visibility = 'hidden'
+    other_purpose.disabled = true
 
   return
 
@@ -17,9 +17,11 @@ window.chkreceipt = (obj) ->
   receipt_addresses = document.getElementsByClassName('receipt_address')
   receipt_provisos = document.getElementsByClassName('receipt_proviso')
   if objID is 'enabled'
+    console.log(receipt_addresses)
     receipt_addresses[0].disabled = false
     receipt_provisos[0].disabled = false
   else
+    console.log(receipt_addresses)
     receipt_addresses[0].disabled = true;
     receipt_provisos[0].disabled = true;
 
@@ -44,8 +46,10 @@ window.chkpreffered_date = (obj) ->
 window.chksize = (obj) ->
   size = document.querySelector('#order_size').options.selectedIndex
   if size isnt 5
-    document.querySelector('#other_size').style.visibility = 'hidden'
+    document.getElementById('height').disabled = true
+    document.getElementById('width').disabled = true
   else
-    document.querySelector('#other_size').style.visibility = 'visible'
+    document.getElementById('height').disabled = false
+    document.getElementById('width').disabled = false
 
   return
