@@ -7,34 +7,34 @@
     =f.label :name, class: "control-label col-sm-3"
     .col-sm-7.form-border
       .form-inline
-        =f.text_field :last_name, class: "form-control", placeholder: "姓", size:"26"
-        =f.text_field :first_name, class: "form-control", placeholder: "名", size:"26"
+        =f.text_field :last_name, class: "form-control", placeholder: "姓", size:"26", required: true
+        =f.text_field :first_name, class: "form-control", placeholder: "名", size:"26", required: true
   .form-group
     =f.label :name_kana, class: "control-label col-sm-3"
     .col-sm-7.form-border
       .form-inline
-        =f.text_field :last_name_kana, class: "form-control", placeholder: "セイ", size: '26'
-        =f.text_field :first_name_kana, class: "form-control", placeholder: "メイ", size: '26'
+        =f.text_field :last_name_kana, class: "form-control", placeholder: "セイ", size: '26', required: true
+        =f.text_field :first_name_kana, class: "form-control", placeholder: "メイ", size: '26', required: true
   .form-group
     =f.label :mail, class: "control-label col-sm-3"
     .col-sm-7.form-border
-      =f.text_field :mail, class: "form-control", placeholder: "coco@mugen.com"
+      =f.text_field :mail, class: "form-control", placeholder: "coco@mugen.com", required: true
   .form-group
     =f.label :phone_number, class: "control-label col-sm-3"
     .col-sm-7.form-border
-      =f.text_field :phone_number, class: "form-control", placeholder: "03-3000-1234 または 090-0123-4567", size:"26"
+      =f.text_field :phone_number, id: "phone_number", class: "form-control", placeholder: "03-3000-1234 または 090-0123-4567", size:"26", required: true, pattern: '[0-9-]*'
   .form-group
     =f.label :residence, class: "control-label col-sm-3"
     .col-sm-7.form-border
       .form-inline
-        =f.text_field :residence_zip_code, class: "form-control", placeholder: "〒", size:7
-        =f.text_field :residence, class: "form-control", placeholder: "東京都新宿区青葉町1-1-1", size:45
+        =f.text_field :residence_zip_code, id: "residence_zip_code", class: "form-control", placeholder: "〒", size:7, required: true, pattern: '[0-9-]*'
+        =f.text_field :residence, class: "form-control", placeholder: "東京都新宿区青葉町1-1-1", size:45, required: true
   .form-group
     =f.label :mailing_address, class: "control-label col-sm-3"
     .col-sm-7.form-border
       .form-inline
-        =f.text_field :mailing_zip_code, class: "form-control", placeholder: "〒", size: "7"
-        =f.text_field :mailing_address, class: "form-control", placeholder: "東京都豊島区若葉町1-1-1", size: "45"
+        =f.text_field :mailing_zip_code, id: "mailing_zip_code", class: "form-control", placeholder: "〒", size: "7", required: true, pattern: '[0-9-]*'
+        =f.text_field :mailing_address, class: "form-control", placeholder: "東京都豊島区若葉町1-1-1", size: "45", required: true
   .form-group
     =f.label :receipt_enabled ,class: "control-label col-sm-3"
     .form-border.col-sm-7{style: "vertical-align: middle"}
@@ -45,8 +45,8 @@
         .radio-inline
           =f.radio_button(:receipt_enabled, :false, id:"disenabled", onclick: "chkreceipt(this)")
           =f.label :disenabled
-      =f.text_field :receipt_address, class: "form-control receipt_address", placeholder: "宛名"
-      =f.text_field :receipt_proviso, class: "form-control receipt_proviso", placeholder: "但書 (例:チョークアート)"
+      =f.text_field :receipt_address, class: "form-control receipt_address", placeholder: "宛名", required: true
+      =f.text_field :receipt_proviso, class: "form-control receipt_proviso", placeholder: "但書 (例:チョークアート)", required: true
   .form-group
     =f.label :purpose, class: "control-label col-sm-3"
     .form-border.col-sm-9{style: "vertical-align: middle"}
@@ -63,7 +63,7 @@
         .radio-inline
           =f.radio_button(:purpose, :other, id:"other", onclick: "chkradio(this)")
           =f.label :other
-        =f.text_field :other_purpose, id: "other_purpose", class: "form-control", placeholder: "その他の用途", disabled: true
+        =f.text_field :other_purpose, id: "other_purpose", class: "form-control", placeholder: "その他の用途", disabled: true, required: true
   .form-group
     =f.label :preffered_date, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position.form-border
@@ -77,9 +77,9 @@
         =f.select :size, {A5: "A5", A4: "A4", A3: "A3", A2: "A2", A1: "A1", その他: "other"}, {}, {onchange: "chksize(this)"}
         %span#other_size
           &nbsp;
-          =f.text_field :length, class: "form-control input-sm", id: "height", placeholder: "25", size: '3', placeholder: "縦(cm)", disabled: true
+          =f.text_field :length, class: "form-control input-sm", id: "height", placeholder: "25", size: '3', placeholder: "縦(cm)", disabled: true, required: true, pattern: '\d+(\.\d+)?'
           ×
-          =f.text_field :width, class: "form-control input-sm", id: "width", placeholder: "25", size: '3', placeholder: "横(cm)", disabled: true
+          =f.text_field :width, id: "width", class: "form-control input-sm", id: "width", placeholder: "25", size: '3', placeholder: "横(cm)", disabled: true, required: true, pattern: '\d+(\.\d+)?'
   .form-group
     =f.label :remarks, class: "control-label col-sm-3"
     .col-sm-7.form-border
