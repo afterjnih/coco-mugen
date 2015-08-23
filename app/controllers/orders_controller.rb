@@ -11,14 +11,12 @@ class OrdersController < ApplicationController
     end
   end
 
-  def create
-    binding.pry
+  def thanks
     @order = Order.new(order_params)
-    # binding.pry
     @order.save!
     InquiryMailer.order_email(@order).deliver
-    flash[:success] = "send a message"
-    redirect_to :action => "new"
+
+    render action: :thanks
   end
 
   private

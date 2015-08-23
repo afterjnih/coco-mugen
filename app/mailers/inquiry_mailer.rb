@@ -12,6 +12,6 @@ class InquiryMailer < ActionMailer::Base
   def order_email(order)
     puts ENV['to_email']
     @order = order
-    mail(subject: 'お問い合わせを承りました')
+    mail(subject: 'ご注文を承りました')
   end
 end
