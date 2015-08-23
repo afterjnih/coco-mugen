@@ -1,45 +1,57 @@
 %h3 入力いただいた項目を確認して送信ボタンを押してください
-=form_for( @order, url:order_path, :html => {:class => "form-horizontal"}) do |f|
+=form_for( @order, url:orders_thanks_path, :html => {:class => "form-horizontal"}) do |f|
   .form-group
     =f.label :name, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position
       .form-inline
+        =f.hidden_field :last_name
         =@order.last_name
+        =f.hidden_field :first_name
         =@order.first_name
   .form-group
     =f.label :name_kana, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position
       .form-inline
+        =f.hidden_field :last_name_kana
         =@order.last_name_kana
+        =f.hidden_field :first_name_kana
         =@order.first_name_kana
   .form-group
     =f.label :mail, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position
+      =f.hidden_field :mail
       =@order.mail
   .form-group
     =f.label :phone_number, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position
+      =f.hidden_field :phone_number
       =@order.phone_number
   .form-group
     =f.label :residence, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position
       .form-inline
+        =f.hidden_field :residence_zip_code
         =@order.residence_zip_code
+        =f.hidden_field :residence
         =@order.residence
   .form-group
     =f.label :mailing_address, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position
       .form-inline
+        =f.hidden_field :mailing_zip_code
         =@order.mailing_zip_code
+        =f.hidden_field :mailing_address
         =@order.mailing_address
   - if @order.receipt_enabled == true
     .form-group
       =f.label :receipt_address, class: "control-label col-sm-3 receipt_address"
       .col-sm-7.preffered_date_position
+        =f.hidden_field :receipt_address
         =@order.receipt_address
     .form-group
       =f.label :receipt_proviso, class: "control-label col-sm-3 receipt_proviso"
       .col-sm-7.preffered_date_position
+        =f.hidden_field :receipt_proviso
         =@order.receipt_proviso
   .form-group
     - if @order.other_purpose == ""
@@ -59,6 +71,7 @@
   .form-group
     =f.label :preffered_date, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position
+      =f.hidden_field :preffered_date
       =@order.preffered_date
   .form-group
     - if @order.size == 'other'
@@ -68,8 +81,10 @@
       =f.label :size, class: "control-label col-sm-3"
       .form-inline
         .col-sm-7.preffered_date_position
+          =f.hidden_field :length
           =@order.length
           ×
+          =f.hidden_field :width
           =@order.width
     - else
       =f.hidden_field :size

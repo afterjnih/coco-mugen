@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post 'orders/confirm' => 'orders#confirm'
+  post 'orders/thanks' => 'orders#thanks'
   post 'contacts/confirm' => 'contacts#confirm'
 
   root to: "home#show"
