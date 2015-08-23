@@ -10,7 +10,18 @@ $accent_color: rgb(111, 75, 62);
 // $topic_title_color: rgb(62,57,60);
 $topic_title_color: #796109;
 
-body { padding-top: 60px;}
+html { height: 100%;}
+
+body { padding-top: 60px;
+       height: 100%;
+}
+
+div#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100px;
+  margin: 0 auto -60px;
+}
 
 // .container {
 //   width: 800px;
@@ -73,8 +84,13 @@ body { padding-top: 60px;}
   font-size: 11pt;
 }
 
-footer{
+#push{
+  height: 120px;
+}
+
+#footer{
   border-top: 1px solid #dcdcdc;
+  height: 120px;
 }
 
 .footer_content{
