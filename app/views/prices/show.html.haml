@@ -31,7 +31,7 @@
 %h5 注4:ご指定の住所にお送りいたします。届きましたら、お早目に開封していただき破損が無いかどうかご確認ください
 
 .text-center
-  %img.text-center.media-object= link_to image_tag('price/button_contact.jpg'), new_order_path, target:["_blank"]
+  %img.text-center.media-object= link_to image_tag('price/button_contact.gif'), new_order_path, target:["_blank"]
 
 -# = @price.each{ |e|; p (e.price)}
 = debug(params) if Rails.env.development?

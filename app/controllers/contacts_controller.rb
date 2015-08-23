@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    # binding.pry
+    binding.pry
     @contact = Contact.new(contact_params)
     @contact.save!
     InquiryMailer.contact_email(@contact).deliver
