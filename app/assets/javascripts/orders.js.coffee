@@ -57,6 +57,7 @@ window.chksize = (obj) ->
 
 $(document).on 'ready page:load', ->
   phone_number = document.getElementById('phone_number')
+  return unless phone_number
   phone_number.addEventListener 'invalid', (e) ->
     e.target.setCustomValidity('半角数字とハイフン(-)だけで入力してください') if phone_number.validity.patternMismatch
     phone_number.addEventListener 'input', (e) ->
@@ -65,6 +66,7 @@ $(document).on 'ready page:load', ->
   , false
 
   residence_zip_code = document.getElementById('residence_zip_code')
+  return unless residence_zip_code
   residence_zip_code.addEventListener 'invalid', (e) ->
     e.target.setCustomValidity('半角数字とハイフン(-)だけで入力してください') if residence_zip_code.validity.patternMismatch
     residence_zip_code.addEventListener 'input', (e) ->
@@ -73,6 +75,7 @@ $(document).on 'ready page:load', ->
   , false
 
   mailing_zip_code = document.getElementById('mailing_zip_code')
+  return unless mailing_zip_code
   mailing_zip_code.addEventListener 'invalid', (e) ->
     e.target.setCustomValidity('半角数字とハイフン(-)だけで入力してください') if mailing_zip_code.validity.patternMismatch
     mailing_zip_code.addEventListener 'input', (e) ->
@@ -81,6 +84,7 @@ $(document).on 'ready page:load', ->
   , false
 
   height = document.getElementById('height')
+  return unless height
   height.addEventListener 'invalid', (e) ->
     e.target.setCustomValidity('半角数字を入力してください') if height.validity.patternMismatch
     height.addEventListener 'input', (e) ->
@@ -89,6 +93,7 @@ $(document).on 'ready page:load', ->
   , false
 
   width = document.getElementById('width')
+  return unless width
   width.addEventListener 'invalid', (e) ->
     e.target.setCustomValidity('半角数字を入力してください') if width.validity.patternMismatch
     width.addEventListener 'input', (e) ->
