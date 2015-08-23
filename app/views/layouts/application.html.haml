@@ -13,14 +13,16 @@
       ga('create', 'UA-59479182-1', 'auto');
       ga('send', 'pageview');
   %body
-    -# %nav.navbar.navbar-default.navbar-fixed-top
-    -#   .container
-    -#     .navbar-header
-    -#       %a.navbar-brand{ href: "#" } header
-    -#     %ul.nav.navbar-nav
-    -#       %li.active= link_to 'link1', '#'
-    -#       %li= link_to 'link2', '#'
-    = render 'layouts/header'
-    .container-fluid
-      = yield
+    #wrapper
+      -# %nav.navbar.navbar-default.navbar-fixed-top
+      -#   .container
+      -#     .navbar-header
+      -#       %a.navbar-brand{ href: "#" } header
+      -#     %ul.nav.navbar-nav
+      -#       %li.active= link_to 'link1', '#'
+      -#       %li= link_to 'link2', '#'
+      = render 'layouts/header'
+      .container-fluid
+        = yield
+      #push
     = render 'layouts/footer'
