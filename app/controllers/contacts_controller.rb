@@ -8,13 +8,10 @@ class ContactsController < ApplicationController
     # binding.pry
   end
 
-  def create
-    binding.pry
+  def thanks
     @contact = Contact.new(contact_params)
     @contact.save!
     InquiryMailer.contact_email(@contact).deliver
-    flash[:success] = "send a message"
-    redirect_to :action => "new"
   end
 
   private

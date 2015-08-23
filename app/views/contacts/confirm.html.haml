@@ -1,5 +1,5 @@
 %h3 入力いただいた項目を確認して送信ボタンを押してください
-=form_for( @contact, url:contact_path, :html => {:class => "form-horizontal"}) do |f|
+=form_for( @contact, url:contacts_thanks_path, :html => {:class => "form-horizontal"}) do |f|
   .form-group
     =f.hidden_field :name
     =f.label :name, class: "control-label col-sm-3"
