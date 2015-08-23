@@ -1,4 +1,4 @@
-%h1.topic_title.text-center &nbsp;Price list&nbsp;
+%h1.topic_title.text-center Price list
 %table.table.table-bordered.table-price
   %tr
     %th サイズ
@@ -10,25 +10,20 @@
       %td= e.price.to_s + '円〜'
       %td= e.purpose
 
-%h1.topic_title.text-center &nbsp;How to order&nbsp;
-%br
-%h4 1. オーダーフォームに必須事項をご入力ください
-%br
-%h4 2. 2～3日以内にこちらから、ご入力していただいたメールアドレスに連絡いたします
-%br
-%h4 3. オーダーフォームに従い、下書きを作成いたします。対面、お電話での打ち合わせも可能です
-%h4　&nbsp;(1〜2週間)(注1)
-%br
-%h4 4. 指定口座への代金振込(注2)
-%br
-%h4 5. お客さまがご納得していただいた上で、ブラックボードに描いていきます(1～2週間)(注3)
-%br
-%h4 5. 納品(注4)
-&nbsp;
-%h5 注1:何度でも無料で修正いたします。回数を重ねた場合、2週間以上かかることがございます
-%h5 注2:振込手数料はお客様ご負担とさせていただきます
-%h5 注3:指定口座にご入金を確認できた上で描き始めさせていただきます。ご入金されてからのキャンセルは、返金致しかねますのでご了承ください
-%h5 注4:ご指定の住所にお送りいたします。届きましたら、お早目に開封していただき破損が無いかどうかご確認ください
+%h1.topic_title.text-center How to order
+.order
+  %h4.order-process 1. オーダーフォームに必須事項をご入力ください
+  %h4.order-process 2. 2～3日以内にこちらから、ご入力していただいたメールアドレスに連絡いたします
+  %h4.order-process 3. オーダーフォームに従い、下書きを作成いたします。対面、お電話での打ち合わせも可能です(1〜2週間)(注1)
+  %h4.order-process 4. 指定口座への代金振込(注2)
+  %h4.order-process 5. お客さまがご納得していただいた上で、ブラックボードに描いていきます(1～2週間)(注3)
+  %h4.order-process 5. 納品(注4)
+
+.order-annotation
+  %h5 注1:何度でも無料で修正いたします。回数を重ねた場合、2週間以上かかることがございます
+  %h5 注2:振込手数料はお客様ご負担とさせていただきます
+  %h5 注3:指定口座にご入金を確認できた上で描き始めさせていただきます。ご入金されてからのキャンセルは、返金致しかねますのでご了承ください
+  %h5 注4:ご指定の住所にお送りいたします。届きましたら、お早目に開封していただき破損が無いかどうかご確認ください
 
 .text-center
   %img.text-center.media-object= link_to image_tag('price/button_contact.gif'), new_order_path, target:["_blank"]
