@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   post 'orders/confirm' => 'orders#confirm'
   post 'orders/thanks' => 'orders#thanks'
   post 'contacts/confirm' => 'contacts#confirm'
+  post 'contacts/thanks' => 'contacts#thanks'
 
   root to: "home#show"
   resource :gallery, only: :show
