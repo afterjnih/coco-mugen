@@ -14,8 +14,8 @@ class OrdersController < ApplicationController
   def thanks
     @order = Order.new(order_params)
     @order.save!
-    InquiryMailer.order_email(@order).deliver
-
+    InquiryMailer.order_email_to_customer(@order).deliver
+    InquiryMailer.order_email_to_owner(@order).deliver
     render action: :thanks
   end
 

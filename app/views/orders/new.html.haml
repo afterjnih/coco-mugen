@@ -52,13 +52,13 @@
     .form-border.col-sm-9{style: "vertical-align: middle"}
       .form-inline
         .radio-inline
-          =f.radio_button(:purpose, :signboard, checked: true, id: "signboard", onclick: "chkradio(this)")
+          =f.radio_button(:purpose, :看板, checked: true, id: "signboard", onclick: "chkradio(this)")
           =f.label :signboard
         .radio-inline
-          =f.radio_button(:purpose, :interior, id:"interior", onclick: "chkradio(this)")
+          =f.radio_button(:purpose, :インテリア, id:"interior", onclick: "chkradio(this)")
           =f.label :interior
         .radio-inline
-          =f.radio_button(:purpose, :wedding, id:"wedding", onclick: "chkradio(this)")
+          =f.radio_button(:purpose, :ウェディング, id:"wedding", onclick: "chkradio(this)")
           =f.label :wedding
         .radio-inline
           =f.radio_button(:purpose, :other, id:"other", onclick: "chkradio(this)")

@@ -44,6 +44,11 @@
         =@order.mailing_address
   - if @order.receipt_enabled == true
     .form-group
+      =f.label :receipt_enabled, class: "control-label col-sm-3"
+      .col-sm-7.preffered_date_position
+        =f.hidden_field :receipt_enabled
+        要
+    .form-group
       =f.label :receipt_address, class: "control-label col-sm-3 receipt_address"
       .col-sm-7.preffered_date_position
         =f.hidden_field :receipt_address
@@ -53,6 +58,12 @@
       .col-sm-7.preffered_date_position
         =f.hidden_field :receipt_proviso
         =@order.receipt_proviso
+  - else
+    .form-group
+      =f.label :receipt_enabled, class: "control-label col-sm-3"
+      .col-sm-7.preffered_date_position
+        =f.hidden_field :receipt_enabled
+        不要
   .form-group
     - if @order.other_purpose == ""
       .field
