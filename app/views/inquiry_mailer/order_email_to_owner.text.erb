@@ -1,0 +1,33 @@
+Webサイトからご注文がありました。
+
+--------------------------
+氏名: <%= @order.last_name %> <%= @order.first_name %>
+シメイ: <%= @order.last_name_kana %> <%= @order.first_name_kana %>
+Email: <%= @order.mail %>
+電話: <%= @order.phone_number %>
+〒: <%= @order.residence_zip_code %>
+住所: <%= @order.residence %>
+送付先〒:<%= @order.mailing_zip_code %>
+送付先住所:<%= @order.mailing_address %>
+<% if @order.receipt_enabled == true %>
+領収書: 要
+<% else %>
+領収書: 不要
+宛名:<%= @order.phone_number %>
+但書:<%= @order.phone_number %>
+<% end %>
+<% unless @order.purpose == 'other' %>
+用途: <%= @order.purpose %>
+<% else %>
+用途: <%= @order.other_purpose %>
+<% end %>
+希望日: <%= @order.preffered_date %>
+<% unless @order.size == 'other' %>
+サイズ: <%= @order.size %>
+<% else %>
+サイズ: その他
+縦: <%= @order.length %>cm
+横: <%= @order.width %>cm
+<% end %>
+備考: <%= @order.remarks %>
+--------------------------

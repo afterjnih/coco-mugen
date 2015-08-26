@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816070259) do
+ActiveRecord::Schema.define(version: 20150824232149) do
 
   create_table "contacts", force: true do |t|
     t.text     "name"
@@ -27,22 +27,22 @@ ActiveRecord::Schema.define(version: 20150816070259) do
     t.string   "last_name_kana",     null: false
     t.string   "first_name_kana",    null: false
     t.string   "mail",               null: false
-    t.string   "phone_number"
+    t.string   "phone_number",       null: false
     t.text     "purpose",            null: false
     t.text     "other_purpose"
     t.date     "preffered_date",     null: false
-    t.float    "length",             null: false
-    t.float    "width",              null: false
+    t.string   "length"
+    t.string   "width"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "residence"
-    t.string   "mailing_address"
-    t.string   "residence_zip_code"
-    t.string   "mailing_zip_code"
-    t.boolean  "receipt_enabled"
+    t.string   "residence",          null: false
+    t.string   "mailing_address",    null: false
+    t.string   "residence_zip_code", null: false
+    t.string   "mailing_zip_code",   null: false
+    t.boolean  "receipt_enabled",    null: false
     t.string   "receipt_address"
     t.string   "receipt_proviso"
-    t.string   "size"
+    t.string   "size",               null: false
     t.text     "remarks"
   end
 
