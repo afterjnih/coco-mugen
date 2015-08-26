@@ -3,10 +3,16 @@ class InquiryMailer < ActionMailer::Base
   default from: ENV['email']
   default to: ENV['to_email']
 
-  def contact_email(contact)
+  def contact_email_to_customer(contact)
     puts ENV['to_email']
     @contact = contact
-    mail(subject: 'お問い合わせを承りました')
+    mail(to: @contact.mail, subject: '[coco-mugen]お問い合わせいただき、ありがとうございます')
+  end
+
+  def contact_email_to_owner(contact)
+    puts ENV['to_email']
+    @contact = contact
+    mail(subject: 'お客様よりお問い合わせを承りました')
   end
 
   def order_email_to_customer(order)

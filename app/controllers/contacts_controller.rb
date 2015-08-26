@@ -11,7 +11,9 @@ class ContactsController < ApplicationController
   def thanks
     @contact = Contact.new(contact_params)
     @contact.save!
-    InquiryMailer.contact_email(@contact).deliver
+    InquiryMailer.contact_email_to_customer(@contact).deliver
+    InquiryMailer.contact_email_to_owner(@contact).deliver
+    render action: :thanks
   end
 
   private
