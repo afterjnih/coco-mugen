@@ -1,3 +1,4 @@
+require 'sendgrid-ruby'
 class InquiryMailer < ActionMailer::Base
 
   default from: ENV['email']
