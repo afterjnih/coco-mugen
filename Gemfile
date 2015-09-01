@@ -7,8 +7,8 @@ gem 'bootstrap-sass', '3.3.1.0'
 gem 'sprockets', '2.11.0'
 gem 'google-analytics-turbolinks'
 # Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'factory_girl_rails', '~> 4.4.1'
 
