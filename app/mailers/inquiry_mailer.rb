@@ -133,9 +133,9 @@ Email: #{order.mail}
       text.concat("\n\n領収書: 要")
     else
       text.concat("\n\n領収書: 不要")
+      text.concat("\n\n宛名: #{order.receipt_address}")
+      text.concat("\n\n但書: #{order.receipt_proviso}")
     end
-    text.concat("\n\n宛名: #{order.phone_number}")
-    text.concat("\n\n但書: #{order.phone_number}")
     unless order.purpose == 'other'
       text.concat("\n\n用途: #{order.purpose}")
     else

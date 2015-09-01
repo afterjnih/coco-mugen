@@ -103,6 +103,7 @@
       .col-sm-7.preffered_date_position
         =@order.size
   .form-group
+    =f.hidden_field :remarks
     =f.label :remarks, class: "control-label col-sm-3"
     .col-sm-7.preffered_date_position
       =@order.remarks
