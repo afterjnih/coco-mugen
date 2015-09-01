@@ -131,10 +131,10 @@ Email: #{order.mail}
     EOS
     if order.receipt_enabled == true
       text.concat("\n\n領収書: 要")
-    else
-      text.concat("\n\n領収書: 不要")
       text.concat("\n\n宛名: #{order.receipt_address}")
       text.concat("\n\n但書: #{order.receipt_proviso}")
+    else
+      text.concat("\n\n領収書: 不要")
     end
     unless order.purpose == 'other'
       text.concat("\n\n用途: #{order.purpose}")
