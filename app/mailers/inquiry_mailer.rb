@@ -1,9 +1,6 @@
 require 'sendgrid-ruby'
 class InquiryMailer < ActionMailer::Base
 
-  default from: ENV['email']
-  default to: ENV['to_email']
-
   def contact_email_to_customer(contact)
     send_contacting_mail_to_customer(contact)
   end
