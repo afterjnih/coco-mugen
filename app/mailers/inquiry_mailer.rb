@@ -25,8 +25,11 @@ class InquiryMailer < ActionMailer::Base
       m.text = <<-"EOS"
 以下の内容のお問い合わせを承りました
 
+
 --------------------------
+
 #{make_contacting_mail_text(contact)}
+
 --------------------------
       EOS
     end
@@ -40,6 +43,7 @@ class InquiryMailer < ActionMailer::Base
       m.subject = '[coco-mugen]お客様よりお問い合わせを承りました。'
       m.text = <<-"EOS"
 Webサイトからお問い合わせがありました。
+
 
 --------------------------
 #{make_contacting_mail_text(contact)}
@@ -57,8 +61,11 @@ Webサイトからお問い合わせがありました。
       m.text = <<-"EOS"
 以下の内容のご注文を承りました
 
+
 --------------------------
+
 #{make_ordering_mail_text(order)}
+
 --------------------------
       EOS
     end
@@ -73,8 +80,11 @@ Webサイトからお問い合わせがありました。
       m.text = <<-"EOS"
 Webサイトからご注文がありました。
 
+
 --------------------------
+
 #{make_ordering_mail_text(order)}
+
 --------------------------
       EOS
     end
@@ -92,7 +102,9 @@ Webサイトからご注文がありました。
   def make_contacting_mail_text(contact)
     text = <<-"EOS"
 氏名: #{contact.name}
+
 Email: #{contact.mail}
+
 問い合せ内容: #{contact.content}
     EOS
   end
@@ -100,34 +112,41 @@ Email: #{contact.mail}
   def make_ordering_mail_text(order)
     text = <<-"EOS"
 氏名: #{order.last_name} #{order.first_name}
+
 シメイ: #{order.last_name_kana} #{order.first_name_kana}
+
 Email: #{order.mail}
+
 電話: #{order.phone_number}
+
 〒: #{order.residence_zip_code}
+
 住所: #{order.residence}
+
 送付先〒: #{order.mailing_zip_code}
+
 送付先住所: #{order.mailing_address}
     EOS
     if order.receipt_enabled == true
-      text.concat("\n領収書: 要")
+      text.concat("\n\n領収書: 要")
     else
-      text.concat("\n領収書: 不要")
+      text.concat("\n\n領収書: 不要")
     end
-    text.concat("\n宛名: #{order.phone_number}")
-    text.concat("\n但書: #{order.phone_number}")
+    text.concat("\n\n宛名: #{order.phone_number}")
+    text.concat("\n\n但書: #{order.phone_number}")
     unless order.purpose == 'other'
-      text.concat("\n用途: #{order.purpose}")
+      text.concat("\n\n用途: #{order.purpose}")
     else
-      text.concat("\n用途: #{order.other_purpose}")
+      text.concat("\n\n用途: #{order.other_purpose}")
     end
-    text.concat("\n希望日: #{order.preffered_date}")
+    text.concat("\n\n希望日: #{order.preffered_date}")
     unless order.size == 'other'
-      text.concat("\nサイズ: #{order.size}")
+      text.concat("\n\nサイズ: #{order.size}")
     else
-      text.concat("\nサイズ: その他")
-      text.concat("\n縦: #{order.length}cm")
-      text.concat("\n横: #{order.width}cm")
+      text.concat("\n\nサイズ: その他")
+      text.concat("\n\n縦: #{order.length}cm")
+      text.concat("\n\n横: #{order.width}cm")
     end
-    text.concat("\n備考: #{order.remarks}")
+    text.concat("\n\n備考: #{order.remarks}")
   end
 end
