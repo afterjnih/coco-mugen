@@ -1,19 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
-# Pick the frameworks you want:
-require "active_model/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "sprockets/railtie"
-# require "rails/test_unit/railtie"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
-ENV.update YAML.load_file('config/settings.yml')[Rails.env] rescue {}
 
 module CocoMugen
   class Application < Rails::Application
@@ -28,18 +19,10 @@ module CocoMugen
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-     config.i18n.default_locale = :ja
-      config.generators do |g|
-        g.test_framework :rspec,
-          fixtures: true,
-          view_spec: false,
-          helper_spec: false,
-          routing_spce: true,
-          conntroller_spec: true,
-          request_spec: false
-        g.fixture_replacement :factory_girl ,dir:"spec/factories"
-      end
 
-      config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    end
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
+
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
+end
