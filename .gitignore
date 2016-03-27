@@ -28,3 +28,5 @@ doc/
 
 config/setting.yml
 .env
+
+coco-mugen.iml
