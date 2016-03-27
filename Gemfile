@@ -57,6 +57,7 @@ gem 'erb2haml'
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg'
 end
 
 gem "non-stupid-digest-assets"
