@@ -8,7 +8,7 @@ gem 'sprockets'
 gem 'google-analytics-turbolinks'
 gem 'sendgrid-ruby'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
@@ -19,6 +19,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
 
+  gem 'sqlite3'
 end
 
 group :test do
