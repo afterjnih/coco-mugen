@@ -30,3 +30,5 @@ config/setting.yml
 .env
 
 coco-mugen.iml
+
+vendor/
